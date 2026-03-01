@@ -255,27 +255,6 @@
       75%       { transform: translateX(7px); }
     }
 
-    #passcode-screen.reveal .ps-topbar,
-    #passcode-screen.reveal .ps-password-panel,
-    #passcode-screen.reveal .ps-center {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-
-    #passcode-screen.reveal {
-      background-image: url('logo-password.png');
-      background-position: center center;
-      background-size: 50%;
-      background-repeat: no-repeat;
-      background-color: #000;
-    }
-
-    @media (max-width: 768px) {
-      #passcode-screen.reveal {
-        background-size: 75%;
-      }
-    }
 
     /* ── MAIN SITE ── */
     #main-site {
@@ -342,7 +321,11 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: url('logo2.jpg') center center / cover no-repeat;
+      background-color: #000;
+      background-image: url('logo-password.png');
+      background-position: center center;
+      background-size: 40%;
+      background-repeat: no-repeat;
       position: relative;
     }
 
@@ -645,13 +628,10 @@
     passcodeInput.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
         if (passcodeInput.value.toLowerCase() === 'tmc') {
-          passcodeScreen.classList.add('reveal');
-          setTimeout(() => {
-            passcodeScreen.style.transition = 'opacity 1.6s ease';
-            passcodeScreen.style.opacity = '0';
-            mainSite.classList.add('visible');
-            setTimeout(() => passcodeScreen.remove(), 1700);
-          }, 1800);
+          passcodeScreen.style.transition = 'opacity 1.6s ease';
+          passcodeScreen.style.opacity = '0';
+          setTimeout(() => passcodeScreen.remove(), 1700);
+          mainSite.classList.add('visible');
         } else {
           passcodeInput.classList.add('error');
           passcodeInput.value = '';

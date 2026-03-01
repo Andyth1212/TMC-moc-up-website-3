@@ -322,18 +322,25 @@
       justify-content: center;
       text-align: center;
       background-color: #000;
-      background-image: url('logo-password.png');
-      background-position: center center;
-      background-size: 40%;
-      background-repeat: no-repeat;
       position: relative;
     }
 
-    .hero::after {
-      content: '';
+    .hero-logo-wrapper {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 900px;
+      z-index: 1;
+    }
+
+    .hero-logo-spin {
+      width: 40%;
+      max-width: 500px;
+      min-width: 200px;
+      animation: logo-spin-3d 7s linear infinite;
+      filter: drop-shadow(0 0 18px rgba(160, 30, 30, 0.45));
     }
 
     .hero-content {
@@ -526,6 +533,9 @@
     </nav>
 
     <section class="hero">
+      <div class="hero-logo-wrapper">
+        <img src="logo-password.png" class="hero-logo-spin" alt="The Midnight Club">
+      </div>
       <div class="hero-content">
         <p>New Drop — 2026</p>
       </div>
